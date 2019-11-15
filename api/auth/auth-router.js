@@ -10,7 +10,7 @@ router.post("/register", (req, res) => {
   bcrypt.hash(password, 12, (err, hash) => {
     users
       .add({ username, password: hash })
-      .then(added => res.status(200).json(added))
+      .then(added => res.status(201).json(added))
       .catch(error => {
         console.log(error);
         res.status(500).json({ message: "Internal error adding new user" });
